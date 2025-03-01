@@ -121,10 +121,6 @@
       pkgs.tree
       pkgs.curl
       pkgs.wget
-      pkgs.htop
-      pkgs.file
-      pkgs.dig
-      pkgs.htop
       pkgs.file
       pkgs.dig
     ];

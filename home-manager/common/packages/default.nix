@@ -39,6 +39,7 @@
       pkgs.just
       pkgs.fastfetch
       pkgs.bottom
+      pkgs.htop
 
       (pkgs.libExt.mkIfElseNull config.nixconf.packages.kanata pkgs.kanata)
       (pkgs.libExt.mkIfElseNull config.nixconf.packages.todoist pkgs.todoist)
