@@ -12,9 +12,9 @@
 
   config = {
     home.packages = pkgs.libExt.filterNull [
-      (pkgs.libExt.mkIfElseNull config.nixconf.browsers.brave pkgs.brave)
-      (pkgs.libExt.mkIfElseNull config.nixconf.browsers.chrome pkgs.google-chrome)
-      (pkgs.libExt.mkIfElseNull config.nixconf.browsers.firefox pkgs.firefox)
+      (pkgs.libExt.mkIfElseNull config.nixconf.browsers.brave pkgs.stable.brave)
+      (pkgs.libExt.mkIfElseNull config.nixconf.browsers.chrome pkgs.stable.google-chrome)
+      (pkgs.libExt.mkIfElseNull config.nixconf.browsers.firefox pkgs.stable.firefox)
     ];
   };
 }
