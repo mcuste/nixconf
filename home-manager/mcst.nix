@@ -16,7 +16,6 @@
       };
 
       editor = {
-        zed = false;
         vscode = false;
         obsidian = true;
         pycharm-professional = false;
