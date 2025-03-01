@@ -38,8 +38,8 @@
       pkgs.ffmpegthumbnailer
       pkgs.just
       pkgs.fastfetch
-      pkgs.bottom
       pkgs.htop
+      pkgs.bottom
 
       (pkgs.libExt.mkIfElseNull config.nixconf.packages.kanata pkgs.kanata)
       (pkgs.libExt.mkIfElseNull config.nixconf.packages.todoist pkgs.todoist)
