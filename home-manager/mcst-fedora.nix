@@ -19,6 +19,7 @@
       };
 
       packages = {
+        kanata = true;
         todoist = true;
         terraform = true;
         gcloud = true;

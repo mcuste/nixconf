@@ -18,6 +18,8 @@
     # KERNEL=="event*", SYSFS{manufacturer}=="Microsoft", SYSFS{idProduct}=="0023", NAME="input/cornekbd"
     # ATTRS{name}=="Corne Keyboard", SYMLINK+="cornekbd"
     # ACTION=="add", SUBSYSTEM=="usb", ATTRS{idVendor}=="0461", ATTRS{idProduct}=="4d81", SYMLINK+="myusb"
+    #
+    # NOTE: corne config is not managed anymore, here for only reference.
     services.udev.extraRules = ''
       KERNEL=="event*", SUBSYSTEM=="input", ATTRS{name}=="Corne Keyboard", SYMLINK+="input/cornekbd"
     '';
