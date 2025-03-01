@@ -11,8 +11,8 @@
 
       scripts = {
         enable = true;
-        notes = true;
-        systemd = true;
+        notes = false;
+        systemd = false;
       };
 
       browsers.brave = true;
