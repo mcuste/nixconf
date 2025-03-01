@@ -49,7 +49,6 @@
         argo = true;
         dive = true;
         graphite = true;
-        fabric = true;
       };
     };
   };
