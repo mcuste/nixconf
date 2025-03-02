@@ -56,16 +56,16 @@
     formatter = forAllSystems (system: nixpkgs.legacyPackages.${system}.alejandra);
 
     # Custom packages
-    packages = forAllSystems (system: import ./pkgs nixpkgs.legacyPackages.${system});
+    packages = forAllSystems (system: import ./nix/pkgs nixpkgs.legacyPackages.${system});
 
     # Custom overlays
-    overlays = import ./overlays {inherit inputs;};
+    overlays = import ./nix/overlays {inherit inputs;};
 
     # Reusable nixos modules (upstream into nixpkgs)
-    nixosModules = import ./modules/nixos;
+    nixosModules = import ./nix/modules/nixos;
 
     # Reusable home-manager modules (upstream into home-manager)
-    homeManagerModules = import ./modules/home-manager;
+    homeManagerModules = import ./nix/modules/home-manager;
 
     # Available through i.e. 'nixos-rebuild --flake .#nixos'
     nixosConfigurations = {
@@ -74,14 +74,14 @@
         specialArgs = args;
         modules = [
           nixos-cosmic.nixosModules.default
-          ./nixos/xps15-9530.nix
+          ./nix/nixos/xps15-9530.nix
 
           home-manager.nixosModules.home-manager
           {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
             home-manager.extraSpecialArgs = args // {isStandalone = false;};
-            home-manager.users.mcst = import ./home-manager/mcst.nix;
+            home-manager.users.mcst = import ./nix/home-manager/mcst.nix;
           }
         ];
       };
@@ -91,14 +91,14 @@
         specialArgs = args;
         modules = [
           nixos-cosmic.nixosModules.default
-          ./nixos/xps15-9560.nix
+          ./nix/nixos/xps15-9560.nix
 
           home-manager.nixosModules.home-manager
           {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
             home-manager.extraSpecialArgs = args // {isStandalone = false;};
-            home-manager.users.homeserver = import ./home-manager/homeserver.nix;
+            home-manager.users.homeserver = import ./nix/home-manager/homeserver.nix;
           }
         ];
       };
@@ -109,7 +109,7 @@
         pkgs = nixpkgs.legacyPackages.x86_64-linux;
         extraSpecialArgs = args // {isStandalone = true;};
         modules = [
-          ./home-manager/mcst.nix
+          ./nix/home-manager/mcst.nix
         ];
       };
 
@@ -117,7 +117,7 @@
         pkgs = nixpkgs.legacyPackages.x86_64-linux;
         extraSpecialArgs = args // {isStandalone = true;};
         modules = [
-          ./home-manager/mcst-fedora.nix
+          ./nix/home-manager/mcst-fedora.nix
         ];
       };
     };
