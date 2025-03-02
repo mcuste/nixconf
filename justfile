@@ -17,3 +17,6 @@ gc:
 # Collect garbage with generation cleanup
 gcd:
   sudo nix-collect-garbage -d
+
+stow:
+  stow stow
