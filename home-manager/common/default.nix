@@ -87,14 +87,14 @@
         warn-dirty = false;
 
         # Optimize store after each build
-        auto-optimise-store = false;
+        auto-optimise-store = true;
 
         # Avoid unwanted garbage collection when using nix-direnv
         keep-outputs = true;
         keep-derivations = true;
 
         # Add user to the trusted users
-        trusted-users = [config.nixconf.username];
+        trusted-users = ["@wheel"];
       };
 
       # flake registry defaults to nixpkgs (unstable in this case)
@@ -125,7 +125,6 @@
       pkgs.nh
       pkgs.nvd
       pkgs.nix-output-monitor
-      pkgs.manix
 
       # also install home-manager and nixgl if standalone hm install
       (pkgs.libExt.mkIfElseNull isStandalone pkgs.home-manager)

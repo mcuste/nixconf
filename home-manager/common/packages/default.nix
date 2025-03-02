@@ -15,7 +15,6 @@
   options.nixconf.packages = {
     kanata = lib.mkEnableOption "Kanata";
     todoist = lib.mkEnableOption "Todoist";
-    graphite = lib.mkEnableOption "Graphite CLI";
   };
 
   config = {
@@ -42,7 +41,6 @@
 
       (pkgs.libExt.mkIfElseNull config.nixconf.packages.kanata pkgs.kanata)
       (pkgs.libExt.mkIfElseNull config.nixconf.packages.todoist pkgs.todoist)
-      (pkgs.libExt.mkIfElseNull config.nixconf.packages.graphite pkgs.graphite-cli)
     ];
   };
 }

@@ -18,16 +18,14 @@
       default = "github@muratcanuste.com";
       description = "Git email";
     };
+
+    graphite = lib.mkEnableOption "Graphite CLI";
   };
 
   config = let
     shellAliases = {
       g = "git";
-
       lg = "lazygit";
-
-      explain = "gh copilot explain";
-      suggest = "gh copilot suggest";
     };
   in
     lib.mkIf config.nixconf.git.enable {
@@ -83,5 +81,9 @@
       programs.gh-dash.enable = true;
 
       programs.lazygit.enable = true;
+
+      home.packages = pkgs.libExt.filterNull [
+        (pkgs.libExt.mkIfElseNull config.nixconf.git.graphite pkgs.graphite-cli)
+      ];
     };
 }

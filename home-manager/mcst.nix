@@ -9,6 +9,8 @@
       stateVersion = "24.11";
       flakePath = "/home/${username}/nixconf";
 
+      git.graphite = true;
+
       scripts = {
         enable = true;
         notes = true;
@@ -48,7 +50,6 @@
         helm = true;
         argo = true;
         dive = true;
-        graphite = true;
       };
     };
   };
