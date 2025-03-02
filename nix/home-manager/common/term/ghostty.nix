@@ -38,14 +38,12 @@
           window-padding-balance = true;
           window-decoration = "none";
 
-          command = "fish";
+          command = "zellij";
           shell-integration-features = "no-cursor";
 
           keybind = [
             "ctrl+shift+c=copy_to_clipboard"
             "ctrl+shift+v=paste_from_clipboard"
-
-            "ctrl+shift+e=write_scrollback_file:open"
             "ctrl+shift+l=clear_screen"
 
             "ctrl+shift+zero=reset_font_size"
