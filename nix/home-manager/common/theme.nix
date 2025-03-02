@@ -48,7 +48,6 @@
       fish.enable = true;
       delta.enable = true;
       bat.enable = true;
-      alacritty.enable = true;
     };
   };
 }

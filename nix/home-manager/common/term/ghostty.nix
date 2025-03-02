@@ -13,7 +13,7 @@
     ghostty =
       if isStandalone
       then (config.lib.nixGL.wrap pkgs.ghostty)
-      else pkgs.alacritty;
+      else pkgs.ghostty;
   in
     lib.mkIf config.nixconf.term.ghostty {
       programs.ghostty = {
