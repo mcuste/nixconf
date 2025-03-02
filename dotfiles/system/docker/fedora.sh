@@ -19,3 +19,4 @@ echo "Running hello world contianer as a test..."
 docker run hello-world
 
 echo "Setup completed. Logout and login for docker group to take effect."
+ 
