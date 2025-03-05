@@ -1,6 +1,7 @@
 return {
-  { 'nmac427/guess-indent.nvim', opts = {} },
+  -- Libs
   { 'MunifTanjim/nui.nvim', lazy = true },
+  { 'nvim-lua/plenary.nvim', branch = 'master' },
 
   -- TODO: zellij
 }

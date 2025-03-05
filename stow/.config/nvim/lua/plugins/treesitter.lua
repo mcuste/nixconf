@@ -220,6 +220,15 @@ return {
     end,
   },
 
+  -- Add comment strings
+  {
+    'JoosepAlviste/nvim-ts-context-commentstring',
+    lazy = true,
+    opts = {
+      enable_autocmd = false,
+    },
+  },
+
   -- Show scope context on the top of the window
   {
     'nvim-treesitter/nvim-treesitter-context',

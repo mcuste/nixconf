@@ -41,7 +41,8 @@
         extraPackages = [
           pkgs.tree-sitter
           pkgs.sqlite
-          pkgs.stylua
+
+          # pkgs.stylua
         ];
       };
 

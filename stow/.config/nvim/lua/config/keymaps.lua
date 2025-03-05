@@ -53,7 +53,7 @@ vim.keymap.set('n', '<C-Right>', '"<Cmd>vertical resize +" . v:count1 . "<CR>"',
 vim.keymap.set({ 'n', 'i' }, '<esc>', '<cmd>nohlsearch<cr><esc>')
 
 -- Replace word under cursor
-vim.keymap.set('n', '<leader>eR', ':%s/<C-r><C-w>//gc<Left><Left><Left>', { desc = 'Replace word under cursor' })
+vim.keymap.set('n', 'gR', ':%s/<C-r><C-w>//gc<Left><Left><Left>', { desc = 'Replace word under cursor' })
 
 -- Delete word without saving to register
 vim.keymap.set('n', '<leader>ed', 'viw"_d', { desc = 'Delete word w/o register' })
@@ -76,7 +76,7 @@ vim.keymap.set('t', '<Esc><Esc>', '<C-\\><C-n>', { desc = 'Exit terminal mode' }
 
 -- Toggles
 local toggle = function(lhs, rhs, desc)
-  vim.keymap.set('n', '<leader>t' .. lhs, rhs, { desc = desc })
+  vim.keymap.set('n', '<leader>u' .. lhs, rhs, { desc = desc })
 end
 
 toggle('l', '<Cmd>setlocal cursorline! cursorline?<CR>', "Toggle 'cursorline'")
@@ -93,5 +93,4 @@ end, "Toggle 'conceallevel'")
 -- some other toggles are added via snacks.nvim
 
 -- TODO: Implement mini.bracketed for the following only
--- comment    = { suffix = 'c', options = {} },
 -- conflict   = { suffix = 'x', options = {} },

@@ -1,40 +1,68 @@
 return {
   'saghen/blink.cmp',
-  dependencies = 'rafamadriz/friendly-snippets',
   version = '*',
-  event = { 'InsertEnter' },
+  event = 'InsertEnter',
+
+  opts_extend = {
+    'sources.completion.enabled_providers',
+    'sources.compat',
+    'sources.default',
+  },
+
+  dependencies = {
+    {
+      'saghen/blink.compat',
+      optional = true, -- make optional so it's only enabled if any extras need it
+      opts = {},
+      version = '*',
+    },
+  },
 
   ---@module 'blink.cmp'
   ---@type blink.cmp.Config
   opts = {
-    -- 'default' (recommended) for mappings similar to built-in completions (C-y to accept, C-n/C-p for up/down)
-    -- 'super-tab' for mappings similar to vscode (tab to accept, arrow keys for up/down)
-    -- 'enter' for mappings similar to 'super-tab' but with 'enter' to accept
-    --
-    -- All presets have the following mappings:
-    -- C-space: Open menu or open docs if already open
-    -- C-e: Hide menu
-    -- C-k: Toggle signature help
-    --
-    -- See the full "keymap" documentation for information on defining your own keymap.
-    keymap = { preset = 'default' },
-
     appearance = {
-      -- Sets the fallback highlight groups to nvim-cmp's highlight groups
-      -- Useful for when your theme doesn't support blink.cmp
-      -- Will be removed in a future release
-      use_nvim_cmp_as_default = true,
+      use_nvim_cmp_as_default = false, -- fallback to nvim-cmp's highlight groups
       nerd_font_variant = 'mono',
     },
 
-    -- Default list of enabled providers defined so that you can extend it
-    -- elsewhere in your config, without redefining it, due to `opts_extend`
-    sources = {
-      default = { 'lsp', 'path', 'snippets', 'buffer' },
+    keymap = { preset = 'default' },
+    cmdline = { enabled = false },
+    signature = { enabled = true },
+    fuzzy = { implementation = 'prefer_rust_with_warning' }, -- use rust bin
+
+    completion = {
+      accept = { auto_brackets = { enabled = true } },
+      menu = { draw = { treesitter = { 'lsp' } } },
+      documentation = {
+        auto_show = true,
+        auto_show_delay_ms = 200,
+      },
+      ghost_text = { enabled = false }, -- copilot uses ghost test already
     },
 
-    fuzzy = { implementation = 'prefer_rust_with_warning' },
+    sources = {
+      -- adding any nvim-cmp sources here will enable them
+      -- with blink.compat
+      compat = {},
+      default = { 'lsp', 'path', 'buffer' },
+    },
   },
 
-  opts_extend = { 'sources.default' },
+  ---@param opts blink.cmp.Config | { sources: { compat: string[] } }
+  config = function(_, opts)
+    -- setup compat sources
+    local enabled = opts.sources.default
+    for _, source in ipairs(opts.sources.compat or {}) do
+      opts.sources.providers[source] = vim.tbl_deep_extend('force', { name = source, module = 'blink.compat.source' }, opts.sources.providers[source] or {})
+      if type(enabled) == 'table' and not vim.tbl_contains(enabled, source) then
+        table.insert(enabled, source)
+      end
+    end
+
+    -- Unset custom prop to pass blink.cmp validation
+    opts.sources.compat = nil
+
+    require('blink.cmp').setup(opts)
+  end,
 }

@@ -1,7 +1,9 @@
 local function is_qf_or_ll_open()
   -- Check if quickfix or loclist window is open
   for _, win in ipairs(vim.fn.getwininfo()) do
-    if win.quickfix == 1 then return true end
+    if win.quickfix == 1 then
+      return true
+    end
   end
   return false
 end
@@ -24,54 +26,41 @@ local tprev = function()
   end
 end
 
+local function map(lhs, rhs, desc)
+  return {
+    lhs,
+    rhs,
+    desc = desc,
+  }
+end
+
 return {
-  'folke/trouble.nvim',
-  opts = {},
-  cmd = 'Trouble',
-  event = 'VeryLazy',
-  keys = {
-    {
-      ']q', tnext, desc = 'Qf/Ll/Trouble Next'
-    },
+  {
+    'folke/trouble.nvim',
+    opts = {},
+    cmd = 'Trouble',
+    event = 'VeryLazy',
 
-    {
-      '[q', tprev, desc = 'Qf/Ll/Trouble Prev'
+    keys = {
+      map(']q', tnext, 'Qf/Ll/Trouble Next'),
+      map('[q', tprev, 'Qf/Ll/Trouble Prev'),
+      map('<leader>ll', '<cmd>Trouble loclist toggle<cr>', 'Location List (Trouble)'),
+      map('<leader>lq', '<cmd>Trouble qflist toggle<cr>', 'Quickfix List (Trouble)'),
+      map('<leader>ld', '<cmd>Trouble diagnostics toggle filter.buf=0<cr>', 'Buffer Diagnostics (Trouble)'),
+      map('<leader>lD', '<cmd>Trouble diagnostics toggle<cr>', 'Diagnostics (Trouble)'),
+      map('<leader>ls', '<cmd>Trouble symbols toggle focus=false<cr>', 'Symbols (Trouble)'),
+      map('<leader>lg', '<cmd>Trouble lsp toggle focus=false win.position=right<cr>', 'LSP Definitions / references / ... (Trouble)'),
     },
+  },
 
-    {
-      '<leader>ll',
-      '<cmd>Trouble loclist toggle<cr>',
-      desc = 'Location List (Trouble)',
-    },
+  {
+    'folke/todo-comments.nvim',
+    dependencies = { 'nvim-lua/plenary.nvim' },
+    event = 'VeryLazy',
+    opts = {},
 
-    {
-      '<leader>lq',
-      '<cmd>Trouble qflist toggle<cr>',
-      desc = 'Quickfix List (Trouble)',
-    },
-
-    {
-      '<leader>ld',
-      '<cmd>Trouble diagnostics toggle filter.buf=0<cr>',
-      desc = 'Buffer Diagnostics (Trouble)',
-    },
-
-    {
-      '<leader>lD',
-      '<cmd>Trouble diagnostics toggle<cr>',
-      desc = 'Diagnostics (Trouble)',
-    },
-
-    {
-      '<leader>ls',
-      '<cmd>Trouble symbols toggle focus=false<cr>',
-      desc = 'Symbols (Trouble)',
-    },
-
-    {
-      '<leader>lg',
-      '<cmd>Trouble lsp toggle focus=false win.position=right<cr>',
-      desc = 'LSP Definitions / references / ... (Trouble)',
+    keys = {
+      map('<leader>lt', '<cmd>Trouble todo<cr>', 'Todo List (Trouble)'),
     },
   },
 }
