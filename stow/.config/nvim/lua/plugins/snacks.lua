@@ -52,6 +52,7 @@ return {
     statuscolumn = { enabled = true }, -- not sure what this does
     words = { enabled = true },
     picker = { enabled = true },
+    indent = { enabled = true },
 
     -- -- installed automatically
     -- animate (not used directly, used by others)
@@ -60,7 +61,6 @@ return {
     -- dim
     -- git (TODO Snacks.git.get_root())
     -- gitbrowse
-    -- indent
     -- layout (not used directly, used by others?)
     -- lazygit
     -- notify (not used directly, used by others?)
@@ -148,13 +148,11 @@ return {
     snacks_map { sfx = 'bl', grp = 'picker', fn = 'lines', desc = 'Buffer Lines' }, -- picker
 
     -- Git
-    snacks_map { sfx = 'gb', grp = 'git', fn = 'blame_line', desc = 'Blame' }, -- git
+    snacks_map { sfx = 'gB', grp = 'git', fn = 'blame_line', desc = 'Blame' }, -- git
     snacks_map { sfx = 'gw', fn = 'gitbrowse', desc = 'Git Browse', mode = { 'n', 'v' } }, -- gitbrowse
     snacks_map { sfx = 'gg', fn = 'lazygit', desc = 'Lazygit' }, -- lazygit
-    snacks_map { sfx = 'gr', grp = 'picker', fn = 'git_branches', desc = 'Git Branches' }, -- picker
     snacks_map { sfx = 'gl', grp = 'picker', fn = 'git_log', desc = 'Git Log' }, -- picker
     snacks_map { sfx = 'go', grp = 'picker', fn = 'git_log_line', desc = 'Git Log Line' }, -- picker
-    snacks_map { sfx = 'gs', grp = 'picker', fn = 'git_stash', desc = 'Git Stash' }, -- picker
 
     -- Notifications
     snacks_map { sfx = 'nc', grp = 'notifier', fn = 'hide', desc = 'Clear Notifications' }, -- notifier

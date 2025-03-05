@@ -3,6 +3,7 @@ return {
   { 'echasnovski/mini.move', event = 'VeryLazy', opts = {} },
   { 'echasnovski/mini.bufremove', event = 'VeryLazy', opts = {} },
   { 'echasnovski/mini.splitjoin', event = 'VeryLazy', opts = { mappings = { toggle = '<leader>ej' } } },
+
   {
     'echasnovski/mini.operators',
     event = 'VeryLazy',
@@ -14,6 +15,19 @@ return {
       sort = { prefix = '<leader>es' },
     },
   },
+
+  {
+    'echasnovski/mini.diff',
+    event = 'VeryLazy',
+    opts = {
+      mappings = {
+        apply = '<leader>ga', -- visual
+        reset = '<leader>gA', -- visual
+        textobject = '<leader>gh', -- textobject
+      },
+    },
+  },
+
   {
     'echasnovski/mini.surround',
     event = 'VeryLazy',

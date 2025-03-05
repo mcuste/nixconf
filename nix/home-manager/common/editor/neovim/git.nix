@@ -3,11 +3,14 @@
     plugins = {
       lazygit.enable = true;
       gitlinker.enable = true;
+
       gitignore.enable = true;
+
       gitblame = {
         enable = true;
         settings.enabled = false; # don't enable by default
       };
+
       diffview = {
         enable = true;
         enhancedDiffHl = true;
