@@ -17,7 +17,7 @@
         systemd = false;
       };
 
-      browsers.brave = true;
+      browsers.chrome = true;
 
       chat.slack = true;
 
