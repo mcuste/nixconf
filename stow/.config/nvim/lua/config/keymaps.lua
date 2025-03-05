@@ -93,6 +93,5 @@ end, "Toggle 'conceallevel'")
 -- some other toggles are added via snacks.nvim
 
 -- TODO: Implement mini.bracketed for the following only
--- buffer     = { suffix = 'b', options = {} },
 -- comment    = { suffix = 'c', options = {} },
 -- conflict   = { suffix = 'x', options = {} },

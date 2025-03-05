@@ -220,10 +220,27 @@ return {
     end,
   },
 
+  -- Show scope context on the top of the window
+  {
+    'nvim-treesitter/nvim-treesitter-context',
+    event = 'VeryLazy',
+    opts = {
+      multiline_threshold = 4,
+      max_lines = 4,
+    },
+  },
+
   -- Automatically add closing tags for HTML and JSX
   {
     'windwp/nvim-ts-autotag',
     event = 'VeryLazy',
     opts = {},
+  },
+
+  -- TS syntax highlight for Nix HM strings
+  {
+    'calops/hmts.nvim',
+    event = 'VeryLazy',
+    version = '*',
   },
 }
