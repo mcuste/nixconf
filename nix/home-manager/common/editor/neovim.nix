@@ -13,6 +13,10 @@
   options.nixconf.editor.neovim = pkgs.libExt.mkEnabledOption "neovim";
 
   config = lib.mkIf config.nixconf.editor.neovim {
+    home.packages = [
+      pkgs.wl-clipboard
+    ];
+
     programs = let
       shellAliases = {
         v = "nvim";
@@ -20,8 +24,29 @@
     in {
       bash = {inherit shellAliases;};
       fish = {inherit shellAliases;};
-      nixvim = {
+
+      neovim = {
         enable = true;
+        viAlias = true;
+        vimAlias = true;
+        vimdiffAlias = true;
+        defaultEditor = true;
+        withNodeJs = true;
+
+        extraLuaPackages = ps: [
+          pkgs.lua51Packages.luarocks
+          ps.tiktoken_core
+        ];
+
+        extraPackages = [
+          pkgs.tree-sitter
+          pkgs.sqlite
+          pkgs.stylua
+        ];
+      };
+
+      nixvim = {
+        enable = false;
         defaultEditor = true;
         viAlias = true;
         vimAlias = true;
