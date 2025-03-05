@@ -2,6 +2,7 @@ return {
   'saghen/blink.cmp',
   dependencies = 'rafamadriz/friendly-snippets',
   version = '*',
+  event = { 'InsertEnter' },
 
   ---@module 'blink.cmp'
   ---@type blink.cmp.Config
@@ -23,7 +24,7 @@ return {
       -- Useful for when your theme doesn't support blink.cmp
       -- Will be removed in a future release
       use_nvim_cmp_as_default = true,
-      nerd_font_variant = 'mono'
+      nerd_font_variant = 'mono',
     },
 
     -- Default list of enabled providers defined so that you can extend it
@@ -32,8 +33,8 @@ return {
       default = { 'lsp', 'path', 'snippets', 'buffer' },
     },
 
-    fuzzy = { implementation = "prefer_rust_with_warning" }
+    fuzzy = { implementation = 'prefer_rust_with_warning' },
   },
 
-  opts_extend = { "sources.default" }
+  opts_extend = { 'sources.default' },
 }
