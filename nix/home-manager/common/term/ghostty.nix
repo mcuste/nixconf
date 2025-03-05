@@ -38,7 +38,7 @@
           window-padding-balance = true;
           window-decoration = "none";
 
-          command = "zellij";
+          command = "tmux attach || tmux";
           shell-integration-features = "no-cursor";
 
           keybind = [

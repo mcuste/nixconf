@@ -16,8 +16,8 @@
         else "${pkgs.bash}/bin/bash";
     in {
       enable = true;
-      enableBashIntegration = true;
-      enableFishIntegration = true;
+      enableBashIntegration = false;
+      enableFishIntegration = false;
     };
   };
 }

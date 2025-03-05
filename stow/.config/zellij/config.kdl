@@ -10,6 +10,11 @@ keybinds clear-defaults=true {
     shared_except "locked" {
         bind "Alt g" { SwitchToMode "locked"; }
         bind "Alt q" { Quit; }
+
+        bind "Ctrl h" { MoveFocusOrTab "left"; }
+        bind "Ctrl j" { MoveFocusOrTab "down"; }
+        bind "Ctrl k" { MoveFocusOrTab "up"; }
+        bind "Ctrl l" { MoveFocusOrTab "right"; }
     }
 
     locked {
@@ -29,10 +34,10 @@ keybinds clear-defaults=true {
         bind "Alt 0" { GoToTab 0; }
 
         // For pane movement along with nvim
-        bind "Ctrl h" { MoveFocus "left"; }
-        bind "Ctrl j" { MoveFocus "down"; }
-        bind "Ctrl k" { MoveFocus "up"; }
-        bind "Ctrl l" { MoveFocus "right"; }
+        bind "Ctrl h" { MoveFocusOrTab "left"; }
+        bind "Ctrl j" { MoveFocusOrTab "down"; }
+        bind "Ctrl k" { MoveFocusOrTab "up"; }
+        bind "Ctrl l" { MoveFocusOrTab "right"; }
     }
 
     tmux {
@@ -166,10 +171,18 @@ plugins {
     welcome-screen location="zellij:session-manager" {
         welcome_screen true
     }
+
+    autolock location="file:~/.config/zellij/plugins/zellij-autolock.wasm" {
+        is_enabled true
+        triggers "nvim|vim|git|fzf|zoxide|atuin"
+        reaction_seconds "1.0"
+        print_to_log true
+    }
 }
 
 // Plugins to load in the background when a new session starts
 // eg. "file:/path/to/my-plugin.wasm"
 // eg. "https://example.com/my-plugin.wasm"
 load_plugins {
+  autolock
 }
