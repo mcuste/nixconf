@@ -5,16 +5,11 @@
   inputs,
   ...
 }: {
-  imports = [
-    inputs.nixvim.homeManagerModules.nixvim
-    ./neovim
-  ];
-
   options.nixconf.editor.neovim = pkgs.libExt.mkEnabledOption "neovim";
 
   config = lib.mkIf config.nixconf.editor.neovim {
     home.packages = [
-      pkgs.wl-clipboard
+      pkgs.wl-clipboard # install wayland clipboard tool
     ];
 
     programs = let
@@ -40,24 +35,8 @@
 
         extraPackages = [
           pkgs.tree-sitter
-          pkgs.sqlite
-
-          # pkgs.stylua
+          pkgs.nixd
         ];
-      };
-
-      nixvim = {
-        enable = false;
-        defaultEditor = true;
-        viAlias = true;
-        vimAlias = true;
-        vimdiffAlias = true;
-
-        globals = {
-          mapleader = " ";
-          maplocalleader = "\\";
-          markdown_recommended_style = 0; # Fix markdown indentation settings
-        };
       };
     };
   };
