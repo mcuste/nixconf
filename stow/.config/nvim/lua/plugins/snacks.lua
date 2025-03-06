@@ -52,7 +52,7 @@ return {
       -- stylua: ignore
       { "<leader>br", function() Snacks.rename.rename_file() end, desc= "Rename File" },
       -- stylua: ignore
-      { "<leader>bs", function() Snacks.scratch.toggle() end, desc = "Scratch Buffer" },
+      { "<leader>bs", function() Snacks.scratch() end, desc = "Scratch Buffer" },
       -- stylua: ignore
       { "<leader>bS", function() Snacks.scratch.select() end, desc = "Scratch Buffer Select" },
 

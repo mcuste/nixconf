@@ -16,6 +16,13 @@ return {
   { import = "lazyvim.plugins.extras.ai.copilot-chat" },
   {
     "CopilotC-Nvim/CopilotChat.nvim",
+    opts = {
+      settings = {
+        model = "claude-3.5-sonnet",
+        context = "buffers",
+        temperature = 0.1,
+      },
+    },
     keys = {
       { "<leader>a", "", desc = "+ai", mode = { "n", "v" } },
       { "<leader>aa", false }, -- disable original chat keymap

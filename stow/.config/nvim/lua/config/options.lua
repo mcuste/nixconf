@@ -1,5 +1,4 @@
 -- Default options that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/options.lua
--- TODO: cleanup?
 
 -- Set leader key
 vim.g.mapleader = " "
@@ -22,7 +21,9 @@ vim.cmd("filetype plugin indent on") -- Enable all filetype plugins
 -- Sync clipboard between OS and Neovim.
 -- Schedule the setting after `UiEnter` because it can increase startup-time.
 vim.schedule(function()
-  vim.opt.clipboard = "unnamedplus"
+  -- only set clipboard if not in ssh, to make sure the OSC 52
+  -- integration works automatically. Requires Neovim >= 0.10.0
+  vim.o.clipboard = vim.env.SSH_TTY and "" or "unnamedplus" -- Sync with system clipboard
 end)
 
 -- Appearance
@@ -51,17 +52,12 @@ vim.o.splitkeep = "screen" -- Reduce scroll during window split
 
 vim.opt.fillchars:append("vert:┃,horiz:━,horizdown:┳,horizup:┻,verthoriz:╋,vertleft:┫,vertright:┣") -- Bold borders
 
-vim.o.conceallevel = 1 -- Set default conceal level to 1, can toggle via <leader>u
+vim.o.conceallevel = 2 -- Hide * markup for bold and italic, but not markers with substitution
 vim.g.have_nerd_font = true -- Have a Nerd Font installed and selected in the terminal
 
 vim.o.foldmethod = "expr"
 vim.o.foldexpr = "nvim_treesitter#foldexpr()"
 vim.o.foldenable = false -- disable folds by default
-
--- extra ui features are not copied over from mini.basic (not sure if needed)
--- related:
---  - completion menu appearance
---  - listchars for tab, spc, etc. placeholder chars
 
 -- Editing
 vim.o.ignorecase = true -- Ignore case when searching (use `\C` to force not doing that)
@@ -76,9 +72,9 @@ vim.o.tabstop = 4 -- Set space count for tab
 vim.o.shiftwidth = 2 -- Set shiftwidth for indentation
 vim.o.shiftround = true -- Set shiftround so the indentations are multiples of shiftwidth
 
-vim.o.completeopt = "menuone,noselect" -- Customize completions
+vim.o.completeopt = "menu,menuone,noselect" -- Customize completions
 vim.o.virtualedit = "block" -- Allow going past the end of line in visual block mode
-vim.o.formatoptions = "qjl1" -- Don't autoformat comments
+vim.o.formatoptions = "jcroqlnt" -- tcqj
 
 vim.o.spell = false -- Disable spelling by default (can toggle on during edit)
 vim.opt.spelllang = { "en" } -- Set spell lang
