@@ -64,6 +64,11 @@
       if [ -f /home/${config.nixconf.username}/.nix-profile/etc/profile.d/nix.sh ]; then
         . /home/${config.nixconf.username}/.nix-profile/etc/profile.d/nix.sh
       fi
+
+      # opam for ocaml
+      if [ -f /home/${config.nixconf.username}/.opam/opam-init/init.sh ]; then
+        . /home/${config.nixconf.username}/.opam/opam-init/init.sh
+      fi
     '';
     sessionVariables = {
       # Automatically trim long paths in the prompt (requires Bash 4.x)
@@ -79,6 +84,10 @@
       # Ex: CDPATH=".:~:~/projects" will look for targets in the current working directory,
       # in home and in the ~/projects folder
       # CDPATH = ".:~/Projects";
+
+      # Export cargo home and add it to the path
+      CARGO_HOME = "/home/${config.nixconf.username}/.cargo";
+      PATH = "$CARGO_HOME/bin:$PATH";
     };
   };
 }

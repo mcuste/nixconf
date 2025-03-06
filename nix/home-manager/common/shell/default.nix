@@ -1,4 +1,8 @@
-{pkgs, ...}: let
+{
+  pkgs,
+  config,
+  ...
+}: let
   enable = {
     enable = true;
     enableBashIntegration = true;
@@ -76,6 +80,8 @@ in {
         shellInit = ''
           set fish_greeting # Disable greeting
           fish_vi_key_bindings
+
+          test -r /home/${config.nixconf.username}/.opam/opam-init/init.fish && source /home/${config.nixconf.username}/.opam/opam-init/init.fish > /dev/null 2> /dev/null; or true
         '';
       };
 
