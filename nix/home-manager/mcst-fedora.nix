@@ -17,8 +17,6 @@
         systemd = false;
       };
 
-      browsers.chrome = true;
-
       chat.slack = true;
 
       editor = {
