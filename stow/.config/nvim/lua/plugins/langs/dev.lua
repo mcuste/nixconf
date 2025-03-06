@@ -15,14 +15,6 @@ return {
     "nvim-treesitter/nvim-treesitter",
     opts = {
       ensure_installed = {
-        -- cuda               [✗] not installed
-        -- gdscript           [✗] not installed
-        -- gdshader           [✗] not installed
-        -- glsl               [✗] not installed
-        -- godot_resource     [✗] not installed
-        -- llvm               [✗] not installed
-        -- wgsl               [✗] not installed
-        -- wgsl_bevy          [✗] not installed
         "htmldjango",
         "http",
         "ocaml_interface",
