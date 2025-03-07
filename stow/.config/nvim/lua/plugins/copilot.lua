@@ -31,12 +31,12 @@ return {
       { "<leader>aS", ":CopilotChatStop<cr>", desc = "Stop Chat Output (CopilotChat)" },
       { "<leader>aM", ":CopilotChatModels<cr>", desc = "Chat Models (CopilotChat)" },
       { "<leader>ar", ":CopilotChatReset<cr>", desc = "Clear (CopilotChat)", mode = { "n", "v" } },
+      { "<leader>l=", ":tabdo wincmd =<cr>", desc = "Equalize windows", mode = { "n", "v" } },
 
       {
         "<leader>ac",
         function()
           require("CopilotChat").toggle()
-          vim.cmd("tabdo wincmd =")
         end,
         desc = "Toggle (CopilotChat)",
         mode = { "n", "v" },
@@ -50,7 +50,6 @@ return {
           }, function(input)
             if input ~= "" then
               require("CopilotChat").ask(input)
-              vim.cmd("tabdo wincmd =")
             end
           end)
         end,
@@ -62,7 +61,6 @@ return {
         "<leader>ap",
         function()
           require("CopilotChat").select_prompt()
-          vim.cmd("tabdo wincmd =")
         end,
         desc = "Prompt Actions (CopilotChat)",
         mode = { "n", "v" },
