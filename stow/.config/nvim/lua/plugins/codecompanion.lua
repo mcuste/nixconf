@@ -26,25 +26,31 @@ return {
         adapters = {
           openai = function()
             return require("codecompanion.adapters").extend("openai", {
-              env = {
-                api_key = read_file("~/.ssh/openai.key"),
-              },
-              schema = {
-                model = {
-                  default = "o3-mini",
-                },
-              },
+              env = { api_key = read_file("~/.ssh/openai.key") },
+              schema = { model = { default = "o3-mini" } },
             })
           end,
+
+          -- openrouter_claude = function()
+          --   return require("codecompanion.adapters").extend("openai_compatible", {
+          --     env = {
+          --       url = "https://openrouter.ai/api",
+          --       api_key = read_file("~/.ssh/openrouter.key"),
+          --       chat_url = "/v1/chat/completions",
+          --     },
+          --     schema = {
+          --       model = {
+          --         default = "anthropic/claude-3.7-sonnet",
+          --       },
+          --     },
+          --   })
+          -- end,
         },
 
         strategies = {
-          chat = {
-            adapter = "openai",
-          },
-          inline = {
-            adapter = "openai",
-          },
+          -- TODO: add tool for web scraping
+          chat = { adapter = "openai" },
+          inline = { adapter = "openai" },
         },
 
         display = {
@@ -62,13 +68,14 @@ return {
       })
     end,
 
+    -- TODO: understand the diff bindings
     keys = {
       { "<leader>l", "", desc = "+llm", mode = { "n", "v" } },
       { "<leader>lc", ":CodeCompanionChat Toggle<cr>", desc = "Chat (CodeCompanion)", mode = { "n", "v" } },
       { "<leader>lC", ":CodeCompanionChat ", desc = "Quick Chat (CodeCompanion)", mode = { "n", "v" } },
       { "<leader>li", ":CodeCompanion ", desc = "Inline Assistant (CodeCompanion)", mode = { "n", "v" } },
       { "<leader>l:", ":CodeCompanionCmd ", desc = "Cmdline Assistant (CodeCompanion)", mode = { "n", "v" } },
-      { "<leader>la", ":CodeCompanionActions", desc = "Actions (CodeCompanion)", mode = { "n", "v" } },
+      { "<leader>la", ":CodeCompanionActions<cr>", desc = "Actions (CodeCompanion)", mode = { "n", "v" } },
       { "<leader>l=", ":tabdo wincmd =<cr>", desc = "Equalize windows", mode = { "n", "v" } },
     },
   },
