@@ -5,6 +5,7 @@ return {
     opts = {
       explorer = { enabled = false },
       scroll = { enabled = false },
+      debug = { enabled = true },
     },
 
     keys = {

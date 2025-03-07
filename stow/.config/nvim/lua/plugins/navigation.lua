@@ -36,6 +36,18 @@ return {
       leader_key = "m",
       buffer_leader_key = "-",
       index_keys = "asdfgqwert",
+      mappings = {
+        toggle = "m", -- save/remove
+        edit = "c",
+        delete_mode = "x",
+        clear_all_items = "X",
+        open_vertical = "v",
+        open_horizontal = "-",
+        quit = "z",
+        remove = "", -- only used if separate_save_and_remove is true
+        next_item = "]",
+        prev_item = "[",
+      },
     },
   },
 
