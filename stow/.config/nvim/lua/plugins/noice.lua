@@ -2,6 +2,7 @@ return {
   "folke/noice.nvim",
   -- stylua: ignore
   keys = {
+    { "<leader>un", false },
     { "<leader>sn", false },
     { "<leader>snl", false },
     { "<leader>snh", false },
