@@ -1,9 +1,19 @@
+vim.g.ai_cmp = false
+
 return {
   -- Import copilot from extras and override filetypes
   { import = "lazyvim.plugins.extras.ai.copilot" },
   {
     "zbirenbaum/copilot.lua",
     opts = {
+      suggestion = {
+        keymap = {
+          next = "<M-j>",
+          prev = "<M-k>",
+          dismiss = "<M-h>",
+          accept = "<M-l>",
+        },
+      },
       filetypes = {
         yaml = true,
         markdown = true,

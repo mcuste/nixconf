@@ -80,7 +80,11 @@ in {
         shellInit = ''
           set fish_greeting # Disable greeting
           fish_vi_key_bindings
+          set fish_cursor_default block
+          set fish_cursor_insert block
+          set fish_cursor_visual block
 
+          test -r /home/${config.nixconf.username}/.nix-profile/etc/profile.d/nix.sh && source /home/${config.nixconf.username}/.nix-profile/etc/profile.d/nix.sh > /dev/null 2> /dev/null; or true
           test -r /home/${config.nixconf.username}/.opam/opam-init/init.fish && source /home/${config.nixconf.username}/.opam/opam-init/init.fish > /dev/null 2> /dev/null; or true
         '';
       };

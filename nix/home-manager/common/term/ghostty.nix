@@ -32,7 +32,10 @@
           theme = "catppuccin-mocha";
           font-size = 12;
           font-family = "${config.nixconf.theme.font} Nerd Font";
+          cursor-style = "block";
           cursor-style-blink = false;
+          # cursor-invert-fg-bg = true;
+          cursor-text = "#000000";
           window-padding-x = 5;
           window-padding-y = 5;
           window-padding-balance = true;

@@ -83,6 +83,9 @@ return {
   {
     "saghen/blink.cmp",
     opts = {
+      completion = {
+        ghost_text = { enabled = false },
+      },
       sources = {
         per_filetype = {
           codecompanion = { "codecompanion" },

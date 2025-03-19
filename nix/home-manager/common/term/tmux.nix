@@ -61,9 +61,11 @@
 
         bind S new-session
 
+        set-option -g cursor-style block
+
         # catppuccin settings after breaking changes
         set -g status-left ""
-        set -g  status-right "#{E:@catppuccin_status_session}"
+        set -g status-right "#{E:@catppuccin_status_session}"
 
         set -g @continuum-boot 'on'
         set -g @continuum-restore 'on'

@@ -36,6 +36,7 @@ vim.o.splitbelow = true -- Horizontal splits will be below
 vim.o.splitright = true -- Vertical splits will be to the right
 vim.o.termguicolors = true -- Enable gui colors
 vim.o.laststatus = 3 -- Always show a single instance of status line for different panes
+vim.o.guicursor = "n-v-c-i:block"
 
 vim.o.ruler = false -- Don't show cursor position in command line
 vim.o.showmode = false -- Don't show mode in command line
