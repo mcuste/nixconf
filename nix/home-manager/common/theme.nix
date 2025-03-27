@@ -39,7 +39,6 @@
       flavor = config.nixconf.theme.flavor;
       accent = config.nixconf.theme.accent;
       yazi.enable = true;
-      tmux.enable = true;
       starship.enable = true;
       lazygit.enable = true;
       k9s.enable = true;
