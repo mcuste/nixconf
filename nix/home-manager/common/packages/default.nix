@@ -14,7 +14,6 @@
 
   options.nixconf.packages = {
     kanata = lib.mkEnableOption "Kanata";
-    todoist = lib.mkEnableOption "Todoist";
   };
 
   config = {
@@ -41,7 +40,6 @@
       pkgs.stow
 
       (pkgs.libExt.mkIfElseNull config.nixconf.packages.kanata pkgs.kanata)
-      (pkgs.libExt.mkIfElseNull config.nixconf.packages.todoist pkgs.todoist)
     ];
   };
 }
