@@ -11,7 +11,6 @@
     ./editor
     ./scripts
     ./shell
-    ./packages
 
     ./term.nix
     ./browsers.nix
@@ -19,6 +18,7 @@
     ./git.nix
     ./media.nix
     ./theme.nix
+    ./packages.nix
   ];
 
   options.nixconf = {
