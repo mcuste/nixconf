@@ -39,12 +39,7 @@
       flavor = config.nixconf.theme.flavor;
       accent = config.nixconf.theme.accent;
       starship.enable = true;
-      lazygit.enable = true;
-      k9s.enable = true;
-      gh-dash.enable = true;
-      fzf.enable = true;
       fish.enable = true;
-      delta.enable = true;
       bat.enable = true;
     };
   };
