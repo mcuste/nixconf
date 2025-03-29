@@ -11,9 +11,9 @@
     ./editor
     ./scripts
     ./shell
-    ./term
     ./packages
 
+    ./term.nix
     ./browsers.nix
     ./chat.nix
     ./git.nix
