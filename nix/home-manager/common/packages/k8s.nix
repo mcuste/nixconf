@@ -14,10 +14,9 @@
   config = {
     home.packages = pkgs.libExt.filterNull [
       (pkgs.libExt.mkIfElseNull config.nixconf.packages.kubectl pkgs.kubectl)
+      (pkgs.libExt.mkIfElseNull config.nixconf.packages.k9s pkgs.k9s)
       (pkgs.libExt.mkIfElseNull config.nixconf.packages.k3d pkgs.k3d)
       (pkgs.libExt.mkIfElseNull config.nixconf.packages.helm pkgs.kubernetes-helm)
     ];
-
-    programs.k9s.enable = config.nixconf.packages.k9s;
   };
 }

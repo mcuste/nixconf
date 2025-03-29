@@ -38,6 +38,7 @@
       pkgs.htop
       pkgs.bottom
       pkgs.stow
+      pkgs.tokei
 
       (pkgs.libExt.mkIfElseNull config.nixconf.packages.kanata pkgs.kanata)
     ];
