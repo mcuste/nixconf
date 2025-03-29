@@ -61,6 +61,7 @@
       pkgs.bottom
       pkgs.stow
       pkgs.tokei
+      pkgs.wl-clipboard # install wayland clipboard tool
 
       # Keyboard
       (pkgs.libExt.mkIfElseNull config.nixconf.packages.kanata pkgs.kanata)

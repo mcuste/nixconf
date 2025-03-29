@@ -4,11 +4,9 @@
   config,
   ...
 }: {
-  imports = [
-    ./neovim.nix
-  ];
-
   options.nixconf.editor = {
+    neovim = pkgs.libExt.mkEnabledOption "neovim";
+
     obsidian = lib.mkEnableOption "Obsidian";
     godot = lib.mkEnableOption "Godot 4";
     vscode = lib.mkEnableOption "VSCode";
@@ -24,5 +22,35 @@
       (pkgs.libExt.mkIfElseNull config.nixconf.editor.pycharm-professional pkgs.jetbrains.pycharm-professional)
       (pkgs.libExt.mkIfElseNull config.nixconf.editor.rust-rover pkgs.jetbrains.rust-rover)
     ];
+
+    # Config via stow
+    programs = let
+      shellAliases = {
+        v = "nvim";
+      };
+    in
+      lib.mkIf config.nixconf.editor.neovim {
+        bash = {inherit shellAliases;};
+        fish = {inherit shellAliases;};
+
+        neovim = {
+          enable = true;
+          viAlias = true;
+          vimAlias = true;
+          vimdiffAlias = true;
+          defaultEditor = true;
+          withNodeJs = true;
+
+          extraLuaPackages = ps: [
+            pkgs.lua51Packages.luarocks
+            ps.tiktoken_core
+          ];
+
+          extraPackages = [
+            pkgs.tree-sitter
+            pkgs.nixd
+          ];
+        };
+      };
   };
 }

@@ -8,7 +8,6 @@
   ...
 }: {
   imports = [
-    ./editor
     ./scripts
     ./shell
 
@@ -18,6 +17,7 @@
     ./git.nix
     ./media.nix
     ./theme.nix
+    ./editor.nix
     ./packages.nix
   ];
 
