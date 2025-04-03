@@ -115,6 +115,14 @@
           ./nix/home-manager/mcst-fedora.nix
         ];
       };
+
+      "homeserver@fedora" = home-manager.lib.homeManagerConfiguration {
+        pkgs = nixpkgs.legacyPackages.x86_64-linux;
+        extraSpecialArgs = args // {isStandalone = true;};
+        modules = [
+          ./nix/home-manager/homeserver-fedora.nix
+        ];
+      };
     };
   };
 }
