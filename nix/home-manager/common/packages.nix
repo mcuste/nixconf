@@ -8,6 +8,9 @@
     # Keyboard config, only used in non NixOS systems
     kanata = lib.mkEnableOption "Kanata";
 
+    # VPN
+    protonvpn = lib.mkEnableOption "ProtonVPN";
+
     # Container related packages (system level packages are set either in NixOS or via system packages on other distros)
     podman-compose = lib.mkEnableOption "Podman Compose";
     nerdctl = lib.mkEnableOption "Nerdctl";
@@ -65,6 +68,9 @@
 
       # Keyboard
       (pkgs.libExt.mkIfElseNull config.nixconf.packages.kanata pkgs.kanata)
+
+      # VPN
+      (pkgs.libExt.mkIfElseNull config.nixconf.packages.protonvpn pkgs.protonvpn-gui)
 
       # Containers
       (pkgs.libExt.mkIfElseNull config.nixconf.packages.podman-compose pkgs.podman-compose)

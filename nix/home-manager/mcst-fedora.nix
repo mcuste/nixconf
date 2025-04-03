@@ -31,6 +31,7 @@
 
       packages = {
         kanata = true;
+        protonvpn = true;
         terraform = true;
         gcloud = true;
         kubectl = true;
