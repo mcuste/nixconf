@@ -32,57 +32,13 @@
       programs.bash = {inherit shellAliases;};
       programs.fish = {inherit shellAliases;};
 
-      programs.git = {
-        enable = true;
-        lfs.enable = true;
-        delta.enable = true;
-        userName = config.nixconf.git.gitUsername;
-        userEmail = config.nixconf.git.gitEmail;
-        extraConfig = {
-          core = {
-            whitespace = "trailing-space,space-before-tab";
-            editor = "nvim";
-          };
-        };
-        ignores = [
-          # things that will be ignored always
-          ".direnv"
-          ".aider*"
-        ];
-        aliases = {
-          s = "status";
-          a = "add";
-          aa = "add --all";
-          p = "pull";
-          ps = "push";
-          c = "commit";
-          cm = "commit -m";
-          cl = "clone";
-          b = "branch";
-          co = "checkout";
-          cob = "checkout -b";
-          r = "rebase";
-          re = "restore";
-          res = "restore --staged";
-          d = "diff";
-          clb = "clone --bare";
-          wl = "worktree list";
-          wa = "worktree add";
-          wr = "worktree remove";
-          wrf = "worktree remove --force";
-        };
-      };
-
-      programs.gh = {
-        enable = true;
-        extensions = [pkgs.gh-copilot];
-      };
-
-      programs.gh-dash.enable = true;
-
-      programs.lazygit.enable = true;
-
       home.packages = pkgs.libExt.filterNull [
+        pkgs.git
+        pkgs.delta
+        pkgs.lazygit
+        pkgs.gh
+        pkgs.gh-dash
+
         (pkgs.libExt.mkIfElseNull config.nixconf.git.graphite pkgs.graphite-cli)
       ];
     };
