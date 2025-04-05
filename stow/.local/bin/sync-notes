@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+echo "Backing up notes..."
+
+cd ~/notes/
+git add .
+if [[ "$(git status --porcelain | wc -l)" -eq "0" ]]; then
+  echo "  🟢 Git repo is clean."
+else
+  echo "  🔴 Git repo has updates. Pushing..."
+  git commit -m "notebackup: $(date '+%Y-%m-%d %H:%M:%S')"
+  git push
+fi
+
+echo "Done!"

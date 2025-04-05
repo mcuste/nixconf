@@ -87,7 +87,9 @@
 
       # Export cargo home and add it to the path
       CARGO_HOME = "/home/${config.nixconf.username}/.cargo";
-      PATH = "$CARGO_HOME/bin:$PATH";
+
+      # Add .local/bin and cargo home to the path
+      PATH = "/home/${config.nixconf.username}/.local/bin:$CARGO_HOME/bin:$PATH";
     };
   };
 }

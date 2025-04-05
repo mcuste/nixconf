@@ -11,12 +11,6 @@
 
       git.graphite = true;
 
-      scripts = {
-        enable = true;
-        notes = false;
-        systemd = false;
-      };
-
       editor = {neovim = true;};
 
       media = {spotify = true;};

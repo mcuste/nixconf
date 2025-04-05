@@ -1,5 +1,6 @@
 {
   pkgs,
+  lib,
   config,
   isStandalone,
   ...
@@ -7,7 +8,7 @@
   options.nixconf.term = {
     ghostty = pkgs.libExt.mkEnabledOption "ghostty";
     tmux = pkgs.libExt.mkEnabledOption "tmux";
-    zellij = pkgs.libExt.mkEnabledOption "zellij";
+    zellij = lib.mkEnableOption "zellij";
   };
 
   config = {

@@ -11,12 +11,6 @@
 
       git.graphite = true;
 
-      scripts = {
-        enable = true;
-        notes = true;
-        systemd = true;
-      };
-
       editor = {
         vscode = false;
         obsidian = true;

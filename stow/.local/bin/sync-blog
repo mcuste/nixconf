@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+echo "Syncing blog notes from Obsidian vault to blog repository..."
+
+rsync -r ~/notes/blog/* ~/blog/content/posts/
+cd ~/blog/
+hugo
+
+git add .
+if [[ "$(git status --porcelain | wc -l)" -eq "0" ]]; then
+  echo " 🟢 Git repo is clean."
+else
+  echo " 🔴 Git repo has updates. Pushing..."
+  git commit -m "blogsync: $(date '+%Y-%m-%d %H:%M:%S')"
+  git push
+fi
+
+echo "Done!"
