@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+
+# Define the base path for notes
+NOTES_PATH=~/notes/logs/Recogni
+
+# Get today's date in the format YYYY-MM-DD
+TODAY=$(date +%Y-%m-%d)
+
+# Construct the file path
+FILE_PATH="$NOTES_PATH/$TODAY.md"
+
+# Create the directory if it doesn't exist
+mkdir -p "$NOTES_PATH"
+
+# Open the file with Neovim
+nvim "$FILE_PATH"
