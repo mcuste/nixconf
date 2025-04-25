@@ -28,7 +28,7 @@ return {
     "CopilotC-Nvim/CopilotChat.nvim",
     opts = {
       settings = {
-        model = "claude-3.5-sonnet",
+        model = "claude-3.7-sonnet-thought",
         context = "buffers",
         temperature = 0.1,
       },
