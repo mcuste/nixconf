@@ -33,6 +33,7 @@
         k3d = true;
         helm = true;
         argo = true;
+        fluxcd = true;
       };
     };
   };

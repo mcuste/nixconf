@@ -39,6 +39,7 @@
     # CI/CD
     argo = lib.mkEnableOption "Argo CLI";
     argocd = lib.mkEnableOption "ArgoCD CLI";
+    fluxcd = lib.mkEnableOption "FluxCD CLI";
   };
 
   config = {
@@ -70,7 +71,7 @@
       (pkgs.libExt.mkIfElseNull config.nixconf.packages.kanata pkgs.kanata)
 
       # VPN
-      (pkgs.libExt.mkIfElseNull config.nixconf.packages.protonvpn pkgs.protonvpn-gui)
+      (pkgs.libExt.mkIfElseNull config.nixconf.packages.protonvpn pkgs.stable.protonvpn-gui)
 
       # Containers
       (pkgs.libExt.mkIfElseNull config.nixconf.packages.podman-compose pkgs.podman-compose)
@@ -81,7 +82,7 @@
       # K8s
       (pkgs.libExt.mkIfElseNull config.nixconf.packages.kubectl pkgs.kubectl)
       (pkgs.libExt.mkIfElseNull config.nixconf.packages.k9s pkgs.k9s)
-      (pkgs.libExt.mkIfElseNull config.nixconf.packages.k3d pkgs.k3d)
+      (pkgs.libExt.mkIfElseNull config.nixconf.packages.k3d pkgs.stable.k3d)
       (pkgs.libExt.mkIfElseNull config.nixconf.packages.helm pkgs.kubernetes-helm)
 
       # Cloud
@@ -107,6 +108,7 @@
       # CI/CD
       (pkgs.libExt.mkIfElseNull config.nixconf.packages.argo pkgs.argo)
       (pkgs.libExt.mkIfElseNull config.nixconf.packages.argocd pkgs.argocd)
+      (pkgs.libExt.mkIfElseNull config.nixconf.packages.fluxcd pkgs.fluxcd)
     ];
   };
 }
