@@ -40,6 +40,9 @@
     argo = lib.mkEnableOption "Argo CLI";
     argocd = lib.mkEnableOption "ArgoCD CLI";
     fluxcd = lib.mkEnableOption "FluxCD CLI";
+
+    # Rust
+    cargo-nextest = lib.mkEnableOption "Cargo Nextest";
   };
 
   config = {
@@ -82,7 +85,7 @@
       # K8s
       (pkgs.libExt.mkIfElseNull config.nixconf.packages.kubectl pkgs.kubectl)
       (pkgs.libExt.mkIfElseNull config.nixconf.packages.k9s pkgs.k9s)
-      (pkgs.libExt.mkIfElseNull config.nixconf.packages.k3d pkgs.stable.k3d)
+      (pkgs.libExt.mkIfElseNull config.nixconf.packages.k3d pkgs.k3d)
       (pkgs.libExt.mkIfElseNull config.nixconf.packages.helm pkgs.kubernetes-helm)
 
       # Cloud
@@ -109,6 +112,9 @@
       (pkgs.libExt.mkIfElseNull config.nixconf.packages.argo pkgs.argo)
       (pkgs.libExt.mkIfElseNull config.nixconf.packages.argocd pkgs.argocd)
       (pkgs.libExt.mkIfElseNull config.nixconf.packages.fluxcd pkgs.fluxcd)
+
+      # Rust
+      (pkgs.libExt.mkIfElseNull config.nixconf.packages.cargo-nextest pkgs.cargo-nextest)
     ];
   };
 }
