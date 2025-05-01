@@ -2,6 +2,7 @@
   pkgs,
   lib,
   config,
+  isStandalone,
   ...
 }: {
   options.nixconf.editor = {
@@ -14,10 +15,15 @@
     pycharm-professional = lib.mkEnableOption "PyCharm Professional";
   };
 
-  config = {
+  config = let
+    godot4 =
+      if isStandalone
+      then (config.lib.nixGL.wrap pkgs.godot_4)
+      else pkgs.godot_4;
+  in {
     home.packages = pkgs.libExt.filterNull [
       (pkgs.libExt.mkIfElseNull config.nixconf.editor.obsidian pkgs.obsidian)
-      (pkgs.libExt.mkIfElseNull config.nixconf.editor.godot pkgs.godot_4)
+      (pkgs.libExt.mkIfElseNull config.nixconf.editor.godot godot4)
       (pkgs.libExt.mkIfElseNull config.nixconf.editor.vscode pkgs.vscode)
       (pkgs.libExt.mkIfElseNull config.nixconf.editor.pycharm-professional pkgs.jetbrains.pycharm-professional)
       (pkgs.libExt.mkIfElseNull config.nixconf.editor.rust-rover pkgs.jetbrains.rust-rover)
