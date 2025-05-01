@@ -119,6 +119,7 @@
 
     # Set flakes path for nh
     home.sessionVariables.FLAKE = config.nixconf.flakePath;
+    home.sessionVariables.NH_FLAKE = config.nixconf.flakePath;
     home.packages = pkgs.libExt.filterNull [
       # Better nix tools
       pkgs.nh
