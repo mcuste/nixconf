@@ -1,0 +1,11 @@
+{
+    "workbench.colorTheme": "Catppuccin Mocha",
+    "files.autoSave": "onFocusChange",
+    "editor.cursorStyle": "block",
+    "extensions.experimental.affinity": {
+        "asvetliakov.vscode-neovim": 1
+    },
+    "editor.lineNumbers": "relative",
+    "editor.minimap.enabled": false,
+    "git.blame.editorDecoration.enabled": true
+}
