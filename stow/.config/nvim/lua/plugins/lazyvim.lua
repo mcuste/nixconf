@@ -9,5 +9,8 @@ return {
         options = true, -- lazyvim.config.options
       },
     },
+    keys = {
+      { "<leader>lzz", "<cmd>Lazy<cr>", desc = "Lazy" },
+    },
   },
 }

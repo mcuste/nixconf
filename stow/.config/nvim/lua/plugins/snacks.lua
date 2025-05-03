@@ -76,8 +76,8 @@ return {
 
       -- 
       -- override + additional keymaps
-      --
 
+      --
       -- Explorer - disable keybind
       { "<leader>e", "", desc = "+edit", mode = { "n", "v" } },
       { "<leader>E", false }, -- disable explorer
