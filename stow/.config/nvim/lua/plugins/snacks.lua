@@ -1,3 +1,7 @@
+if vim.g.vscode then
+  return {}
+end
+
 -- Disable default picker keybinds and remap them with custom implementation for git root
 return {
   {

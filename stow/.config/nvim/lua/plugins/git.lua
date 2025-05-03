@@ -1,3 +1,7 @@
+if vim.g.vscode then
+  return {}
+end
+
 return {
   { "lewis6991/gitsigns.nvim", enabled = false },
   -- Import mini.diff from extras and override keymaps

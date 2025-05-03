@@ -1,3 +1,7 @@
+if vim.g.vscode then
+  return {}
+end
+
 return {
   { import = "lazyvim.plugins.extras.coding.neogen" },
   { import = "lazyvim.plugins.extras.dap.core" },

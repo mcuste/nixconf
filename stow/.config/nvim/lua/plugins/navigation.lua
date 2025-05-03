@@ -1,13 +1,10 @@
 return {
   {
     "stevearc/oil.nvim",
-
-    -- Optional dependencies
+    enabled = not vim.g.vscode,
     dependencies = { { "echasnovski/mini.icons", opts = {} } },
-
     -- Lazy loading is not recommended because it is very tricky to make it work correctly in all situations.
     lazy = false,
-
     opts = {
       delete_to_trash = true,
       skip_confirm_for_simple_edits = false,
@@ -18,20 +15,18 @@ return {
         ["<C-v>"] = { "actions.select", opts = { vertical = true } },
       },
     },
-
     keys = {
       { "<leader>fe", "<CMD>Oil<CR>", { desc = "Oil" } },
     },
-
     -- TODO: fix ctrl-hjkl on Oil
     -- TODO: check if oil file rename triggers LSP rename
   },
 
   {
     "otavioschwanck/arrow.nvim",
+    enabled = not vim.g.vscode,
     dependencies = { { "echasnovski/mini.icons" } },
     event = "VeryLazy",
-
     opts = {
       show_icons = true,
       leader_key = "m",
@@ -66,6 +61,7 @@ return {
   -- override
   {
     "akinsho/bufferline.nvim",
+    enabled = not vim.g.vscode,
     keys = {
       { "<leader>bp", "<Cmd>BufferLineTogglePin<CR>", desc = "Toggle Pin" },
       { "<leader>bP", "<Cmd>BufferLineGroupClose ungrouped<CR>", desc = "Delete Non-Pinned Buffers" },

@@ -2,13 +2,14 @@ return {
   { "nmac427/guess-indent.nvim", opts = {} },
   -- mini.ai already added by lazy
   { import = "lazyvim.plugins.extras.editor.mini-move" },
-  { "echasnovski/mini.bufremove", event = "VeryLazy", opts = {} },
+  { "echasnovski/mini.bufremove", enabled = not vim.g.vscode, event = "VeryLazy", opts = {} },
   -- mini.comment already added by lazy
   -- persistence already added by lazy
   { import = "lazyvim.plugins.extras.coding.mini-surround" },
 
   {
     "MagicDuck/grug-far.nvim",
+    enabled = not vim.g.vscode,
     keys = {
       { "<leader>sr", false },
       {
