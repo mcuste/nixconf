@@ -7,5 +7,7 @@
     },
     "editor.lineNumbers": "relative",
     "editor.minimap.enabled": false,
-    "git.blame.editorDecoration.enabled": true
+    "git.blame.editorDecoration.enabled": true,
+    "github.copilot.nextEditSuggestions.enabled": true,
+    "godotTools.lsp.serverPort": 6005
 }

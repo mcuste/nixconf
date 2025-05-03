@@ -12,3 +12,4 @@ stow/.config/Code/*
 stow/.config/Code/User/*
 # FINALLY, do not ignore the specific settings file
 !stow/.config/Code/User/settings.json
+stow/.local/bin/godot

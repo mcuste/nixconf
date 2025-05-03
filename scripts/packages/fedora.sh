@@ -6,4 +6,4 @@ sudo dnf update -y
 sudo dnf install solaar
 
 # Godot
-flatpak install flathub org.godotengine.Godot
+# flatpak install flathub org.godotengine.Godot -- install binary instead
