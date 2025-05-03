@@ -11,6 +11,7 @@
 in {
   imports = [
     ./bash.nix
+    ./aliases.nix
   ];
 
   options.nixconf.shell = {

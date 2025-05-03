@@ -22,24 +22,15 @@
     graphite = lib.mkEnableOption "Graphite CLI";
   };
 
-  config = let
-    shellAliases = {
-      g = "git";
-      lg = "lazygit";
-    };
-  in
-    lib.mkIf config.nixconf.git.enable {
-      programs.bash = {inherit shellAliases;};
-      programs.fish = {inherit shellAliases;};
+  config = lib.mkIf config.nixconf.git.enable {
+    home.packages = pkgs.libExt.filterNull [
+      pkgs.git
+      pkgs.delta
+      pkgs.lazygit
+      pkgs.gh
+      pkgs.gh-dash
 
-      home.packages = pkgs.libExt.filterNull [
-        pkgs.git
-        pkgs.delta
-        pkgs.lazygit
-        pkgs.gh
-        pkgs.gh-dash
-
-        (pkgs.libExt.mkIfElseNull config.nixconf.git.graphite pkgs.graphite-cli)
-      ];
-    };
+      (pkgs.libExt.mkIfElseNull config.nixconf.git.graphite pkgs.graphite-cli)
+    ];
+  };
 }
