@@ -23,6 +23,7 @@ return {
       { "<leader>fe", "<CMD>Oil<CR>", { desc = "Oil" } },
     },
 
+    -- TODO: fix ctrl-hjkl on Oil
     -- TODO: check if oil file rename triggers LSP rename
   },
 

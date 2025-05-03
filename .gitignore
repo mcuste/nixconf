@@ -1,1 +1,14 @@
 **/tmux/plugins
+
+# Bins
+stow/.local/bin/k3d
+
+# VSCode configs
+# Ignore everything within the Code directory
+stow/.config/Code/*
+# BUT, do not ignore the User directory itself (needed to traverse into it)
+!stow/.config/Code/User/
+# THEN, ignore everything inside the User directory
+stow/.config/Code/User/*
+# FINALLY, do not ignore the specific settings file
+!stow/.config/Code/User/settings.json

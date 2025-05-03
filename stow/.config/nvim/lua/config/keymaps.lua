@@ -56,10 +56,12 @@ vim.keymap.set({ "n", "i" }, "<esc>", "<cmd>nohlsearch<cr><esc>")
 
 -- Replace word under cursor
 vim.keymap.set("n", "gR", ":%s/<C-r><C-w>//gc<Left><Left><Left>", { desc = "Replace word under cursor" })
+vim.keymap.set("v", "gR", '"hy:%s/<C-r>h//gc<Left><Left><Left>', { desc = "Replace visually selected text" })
 
--- Delete word without saving to register
-vim.keymap.set("n", "<leader>ed", 'viw"_d', { desc = "Delete word w/o register" })
-vim.keymap.set("v", "<leader>ed", '"_d', { desc = "Delete w/o register" })
+-- Paste/Delete word without saving to register
+vim.keymap.set("v", "gp", '"_dP', { desc = "Paste w/o saving replaced text to register" })
+vim.keymap.set("n", "gX", 'viw"_d', { desc = "Delete word w/o register" })
+vim.keymap.set("v", "gX", '"_d', { desc = "Delete w/o register" })
 
 -- Move to the beginning or end of line with H and L
 vim.keymap.set({ "n", "v" }, "H", "^", { desc = "Move beginning of line" })
@@ -90,31 +92,13 @@ local diagnostic_goto = function(next, severity)
     go({ severity = severity })
   end
 end
-vim.keymap.set("n", "<leader>cd", vim.diagnostic.open_float, { desc = "Line Diagnostics" })
+vim.keymap.set("n", "gl", vim.diagnostic.open_float, { desc = "Line Diagnostics" })
 vim.keymap.set("n", "]d", diagnostic_goto(true), { desc = "Next Diagnostic" })
 vim.keymap.set("n", "[d", diagnostic_goto(false), { desc = "Prev Diagnostic" })
 vim.keymap.set("n", "]e", diagnostic_goto(true, "ERROR"), { desc = "Next Error" })
 vim.keymap.set("n", "[e", diagnostic_goto(false, "ERROR"), { desc = "Prev Error" })
 vim.keymap.set("n", "]w", diagnostic_goto(true, "WARN"), { desc = "Next Warning" })
 vim.keymap.set("n", "[w", diagnostic_goto(false, "WARN"), { desc = "Prev Warning" })
-
--- Note: Includes snacks.nvim functions
-
--- Toggle options
-Snacks.toggle.option("spell", { name = "Spelling" }):map("<leader>us")
-Snacks.toggle.option("wrap", { name = "Wrap" }):map("<leader>uw")
-Snacks.toggle.option("ignorecase", { name = "Ignorecase" }):map("<leader>ui")
-Snacks.toggle.option("cursorcolumn", { name = "Cursorcolumn" }):map("<leader>uo")
-Snacks.toggle.diagnostics():map("<leader>ud")
-Snacks.toggle
-  .option("conceallevel", { off = 0, on = vim.o.conceallevel > 0 and vim.o.conceallevel or 2, name = "Conceal Level" })
-  :map("<leader>uc")
-Snacks.toggle.dim():map("<leader>uD")
-Snacks.toggle.profiler_highlights():map("<leader>dph")
-
-if vim.lsp.inlay_hint then
-  Snacks.toggle.inlay_hints():map("<leader>uh")
-end
 
 -- Finer conceallevel control
 -- toggle("c", function()
