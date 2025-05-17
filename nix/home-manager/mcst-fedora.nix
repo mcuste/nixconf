@@ -16,7 +16,6 @@
       editor = {
         neovim = true;
         obsidian = true;
-        vscode = true;
       };
 
       media = {

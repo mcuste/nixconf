@@ -34,6 +34,7 @@ return {
 
     -- stylua: ignore
     keys = {
+      { "<leader>c", false }, -- random undocumented keymap?
       { "<leader>,", false }, -- buffers
       { "<leader>/", false }, -- grep
       { "<leader><space>", false }, -- false
@@ -83,7 +84,7 @@ return {
 
       --
       -- Explorer - disable keybind
-      { "<leader>e", "", desc = "+edit", mode = { "n", "v" } },
+      { "<leader>e", false },
       { "<leader>E", false }, -- disable explorer
       { "<leader>fE", false }, -- disable explorer
 

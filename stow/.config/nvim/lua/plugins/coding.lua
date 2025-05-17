@@ -21,7 +21,8 @@ return {
         { "<leader>cr", false},
         { "<leader>cA", false},
 
-        { "<leader>lz", "", desc = "+code", mode = { "n" } },
+        { "<leader>l", "", desc = "+code", mode = { "n", "v" } },
+        { "<leader>lz", "", desc = "+tools", mode = { "n" } },
         { "<leader>la", vim.lsp.buf.code_action, desc = "Code Action", mode = { "n", "v" }, has = "codeAction" },
         { "<leader>lc", vim.lsp.codelens.run, desc = "Run Codelens", mode = { "n", "v" }, has = "codeLens" },
         { "<leader>lC", vim.lsp.codelens.refresh, desc = "Refresh & Display Codelens", mode = { "n" }, has = "codeLens" },

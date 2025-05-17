@@ -9,5 +9,11 @@
     "editor.minimap.enabled": false,
     "git.blame.editorDecoration.enabled": true,
     "github.copilot.nextEditSuggestions.enabled": true,
-    "godotTools.lsp.serverPort": 6005
+    "godotTools.lsp.serverPort": 6005,
+    "vscode-kubernetes.kubectl-path": "/home/mcst/.nix-profile/bin/kubectl",
+    "vscode-kubernetes.kubectl-path-linux": "/home/mcst/.nix-profile/bin/kubectl",
+    "vs-kubernetes": {
+        "vs-kubernetes.crd-code-completion": "enabled"
+    },
+    "npm.packageManager": "pnpm"
 }
