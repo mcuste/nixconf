@@ -15,5 +15,7 @@
     "vs-kubernetes": {
         "vs-kubernetes.crd-code-completion": "enabled"
     },
-    "npm.packageManager": "pnpm"
+    "npm.packageManager": "pnpm",
+    "svelte.enable-ts-plugin": true,
+    "go.toolsManagement.autoUpdate": true
 }

@@ -9,7 +9,6 @@
     neovim = pkgs.libExt.mkEnabledOption "neovim";
     obsidian = lib.mkEnableOption "Obsidian";
     vscode = lib.mkEnableOption "VSCode";
-    rust-rover = lib.mkEnableOption "RustRover";
     pycharm-professional = lib.mkEnableOption "PyCharm Professional";
   };
 
@@ -18,7 +17,6 @@
       (pkgs.libExt.mkIfElseNull config.nixconf.editor.obsidian pkgs.obsidian)
       (pkgs.libExt.mkIfElseNull config.nixconf.editor.vscode pkgs.vscode)
       (pkgs.libExt.mkIfElseNull config.nixconf.editor.pycharm-professional pkgs.jetbrains.pycharm-professional)
-      (pkgs.libExt.mkIfElseNull config.nixconf.editor.rust-rover pkgs.jetbrains.rust-rover)
     ];
 
     # Config via stow

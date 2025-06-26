@@ -1,0 +1,19 @@
+{
+  "mcpServers": {
+    "github.com/modelcontextprotocol/servers/tree/main/src/sequentialthinking": {
+      "command": "npx",
+      "custom_instructions": {
+        "disabled": true
+      },
+      "args": ["-y", "@modelcontextprotocol/server-sequential-thinking"]
+    },
+    "github.com/modelcontextprotocol/servers/tree/main/src/brave-search": {
+      "command": "npx",
+      "args": ["-y", "@modelcontextprotocol/server-brave-search"],
+      "env": {
+        "BRAVE_API_KEY": "$: cat ~/.ssh/brave.key"
+      }
+    }
+  },
+  "nativeMCPServers": []
+}
