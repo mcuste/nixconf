@@ -23,8 +23,9 @@ vim.cmd("filetype plugin indent on") -- Enable all filetype plugins
 vim.schedule(function()
   -- only set clipboard if not in ssh, to make sure the OSC 52
   -- integration works automatically. Requires Neovim >= 0.10.0
-  vim.o.clipboard = vim.env.SSH_TTY and "" or "unnamedplus" -- Sync with system clipboard
+  -- vim.o.clipboard = vim.env.SSH_TTY and "" or "unnamedplus" -- Sync with system clipboard
 end)
+vim.o.clipboard = "unnamedplus"
 
 -- Appearance
 vim.o.breakindent = true -- Indent wrapped lines to match line start

@@ -115,6 +115,8 @@
 
       # Rust
       (pkgs.libExt.mkIfElseNull config.nixconf.packages.cargo-nextest pkgs.cargo-nextest)
+
+      (config.lib.nixGL.wrap (pkgs.anki-bin))
     ];
   };
 }

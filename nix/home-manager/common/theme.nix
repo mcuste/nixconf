@@ -6,7 +6,7 @@
   ...
 }: {
   imports = [
-    inputs.catppuccin.homeManagerModules.catppuccin
+    inputs.catppuccin.homeModules.catppuccin
   ];
 
   options.nixconf.theme = {
@@ -31,9 +31,8 @@
 
   config = {
     fonts.fontconfig.enable = true;
-    home.packages = [
-      (pkgs.stable.nerdfonts.override {fonts = [config.nixconf.theme.font];})
-    ];
+
+    home.packages = [pkgs.nerd-fonts.jetbrains-mono];
 
     catppuccin = {
       flavor = config.nixconf.theme.flavor;
