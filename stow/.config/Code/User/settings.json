@@ -17,5 +17,7 @@
     },
     "npm.packageManager": "pnpm",
     "svelte.enable-ts-plugin": true,
-    "go.toolsManagement.autoUpdate": true
+    "go.toolsManagement.autoUpdate": true,
+    "git.openRepositoryInParentFolders": "never",
+    "python.analysis.typeCheckingMode": "standard"
 }

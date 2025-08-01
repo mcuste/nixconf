@@ -2,7 +2,7 @@ if vim.g.vscode then
   return {}
 end
 
-vim.g.lazyvim_python_lsp = "basedpyright"
+vim.g.lazyvim_python_lsp = "pyright"
 vim.g.lazyvim_python_ruff = "ruff"
 
 return {

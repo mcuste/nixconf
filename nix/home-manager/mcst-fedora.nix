@@ -9,6 +9,8 @@
       stateVersion = "24.11";
       flakePath = "/home/${username}/nixconf";
 
+      term.ghostty = true;
+
       git.graphite = true;
 
       chat.slack = true;

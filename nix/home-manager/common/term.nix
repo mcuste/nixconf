@@ -16,7 +16,7 @@
     home.packages = let
       ghostty =
         if isStandalone
-        then (config.lib.nixGL.wrap pkgs.ghostty)
+        then (config.lib.nixGL.wrap pkgs.stable.ghostty)
         else pkgs.ghostty;
     in
       pkgs.libExt.filterNull [
