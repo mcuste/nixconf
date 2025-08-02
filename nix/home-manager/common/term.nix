@@ -8,7 +8,6 @@
   options.nixconf.term = {
     ghostty = lib.mkEnableOption "ghostty";
     tmux = pkgs.libExt.mkEnabledOption "tmux";
-    zellij = lib.mkEnableOption "zellij";
   };
 
   config = {
@@ -21,7 +20,6 @@
       pkgs.libExt.filterNull [
         (pkgs.libExt.mkIfElseNull config.nixconf.term.ghostty ghostty)
         (pkgs.libExt.mkIfElseNull config.nixconf.term.tmux pkgs.tmux)
-        (pkgs.libExt.mkIfElseNull config.nixconf.term.zellij pkgs.zellij)
       ];
   };
 }
