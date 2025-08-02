@@ -43,6 +43,12 @@
 
     # Rust
     cargo-nextest = lib.mkEnableOption "Cargo Nextest";
+
+    # Anki
+    anki = lib.mkEnableOption "Anki";
+
+    # AI Tools
+    gemini-cli = lib.mkEnableOption "Gemini CLI";
   };
 
   config = {
@@ -116,7 +122,11 @@
       # Rust
       (pkgs.libExt.mkIfElseNull config.nixconf.packages.cargo-nextest pkgs.cargo-nextest)
 
-      (config.lib.nixGL.wrap (pkgs.anki-bin))
+      # Anki
+      (pkgs.libExt.mkIfElseNull config.nixconf.packages.anki (config.lib.nixGL.wrap (pkgs.anki-bin)))
+
+      # AI Tools
+      (pkgs.libExt.mkIfElseNull config.nixconf.packages.gemini-cli pkgs.gemini-cli)
     ];
   };
 }

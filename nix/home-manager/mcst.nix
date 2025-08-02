@@ -38,6 +38,8 @@
         fluxcd = true;
         lazydocker = true;
         cargo-nextest = true;
+        anki = true;
+        gemini-cli = true;
       };
     };
   };
