@@ -9,13 +9,20 @@
     neovim = pkgs.libExt.mkEnabledOption "neovim";
     obsidian = lib.mkEnableOption "Obsidian";
     vscode = lib.mkEnableOption "VSCode";
+    zed = lib.mkEnableOption "Zed";
     pycharm-professional = lib.mkEnableOption "PyCharm Professional";
   };
 
-  config = {
+  config = let
+    zed-editor =
+      if isStandalone
+      then (config.lib.nixGL.wrap pkgs.zed-editor)
+      else pkgs.zed-editor;
+  in {
     home.packages = pkgs.libExt.filterNull [
       (pkgs.libExt.mkIfElseNull config.nixconf.editor.obsidian pkgs.obsidian)
       (pkgs.libExt.mkIfElseNull config.nixconf.editor.vscode pkgs.vscode)
+      (pkgs.libExt.mkIfElseNull config.nixconf.editor.zed zed-editor)
       (pkgs.libExt.mkIfElseNull config.nixconf.editor.pycharm-professional pkgs.jetbrains.pycharm-professional)
     ];
 

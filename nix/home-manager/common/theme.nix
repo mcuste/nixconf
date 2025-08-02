@@ -30,10 +30,6 @@
   };
 
   config = {
-    fonts.fontconfig.enable = true;
-
-    home.packages = [pkgs.nerd-fonts.jetbrains-mono];
-
     catppuccin = {
       flavor = config.nixconf.theme.flavor;
       accent = config.nixconf.theme.accent;

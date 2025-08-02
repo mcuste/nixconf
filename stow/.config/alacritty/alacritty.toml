@@ -1,0 +1,13 @@
+general.import = [
+  "~/.config/alacritty/catppuccin.toml",
+]
+
+[window]
+padding.x = 10
+padding.y = 10
+decorations = "None"
+
+[font]
+# normal.family = "JetBrainsMono Nerd Font"
+normal.style = "Regular"
+size = 12.0

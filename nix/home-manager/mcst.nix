@@ -9,39 +9,35 @@
       stateVersion = "24.11";
       flakePath = "/home/${username}/nixconf";
 
+      term.ghostty = true;
+
       git.graphite = true;
 
-      editor = {
-        vscode = false;
-        obsidian = true;
-        pycharm-professional = false;
-        rust-rover = false;
-      };
+      chat.slack = true;
 
-      browsers = {
-        brave = true;
-        chrome = true;
-        firefox = true;
+      editor = {
+        neovim = true;
+        zed = true;
+        obsidian = true;
       };
 
       media = {
         spotify = true;
-        calibre = true;
-        zotero = true;
       };
 
-      chat.slack = true;
-
       packages = {
-        packer = true;
+        kanata = true;
+        protonvpn = true;
         terraform = true;
         gcloud = true;
         kubectl = true;
         k9s = true;
-        k3d = true;
+        k3d = false; # using pre-built bin v5.6.3 as anything above 5.7 are broken
         helm = true;
         argo = true;
-        dive = true;
+        fluxcd = true;
+        lazydocker = true;
+        cargo-nextest = true;
       };
     };
   };

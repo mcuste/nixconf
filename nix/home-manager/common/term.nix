@@ -6,7 +6,6 @@
   ...
 }: {
   options.nixconf.term = {
-    # ghostty = pkgs.libExt.mkEnabledOption "ghostty";
     ghostty = lib.mkEnableOption "ghostty";
     tmux = pkgs.libExt.mkEnabledOption "tmux";
     zellij = lib.mkEnableOption "zellij";
